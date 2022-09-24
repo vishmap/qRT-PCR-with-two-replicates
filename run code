@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
+#Written by Joshua Shaffer (jfshaffe@ucsc.edu)
+#Modified by VPS (Vishmapratap.sur@ibt.cas.cz)
+
+
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+import math
+def main():
+    data0 = input("experimental group technical replicate 1 experimental gene Cq/Ct value: ")
+    data1 = input("experimental group technical replicate 2 experimental gene Cq/Ct value: ")
+    data2 = input("experimental group technical replicate 1 housekeeping gene Cq/Ct value: ")
+    data3 = input("experimental group technical replicate 2 housekeeping gene Cq/Ct value: ")
+    data4 = input("control group technical replicate 1 experimental gene Cq/Ct value: ")
+    data5 = input("control group technical replicate 2 experimental gene Cq/Ct value: ")
+    data6 = input("control group technical replicate 1 housekeeping gene Cq/Ct value: ")
+    data7 = input("control group technical replicate 2 housekeeping gene Cq/Ct value: ")
+    dataA = float(data0)
+    dataB = float(data1)
+    dataC = float(data2)
+    dataD = float(data3)
+    dataE = float(data4)
+    dataF = float(data5)
+    dataG = float(data6)
+    dataH = float(data7)
+    te = ((dataA+dataB))/2
+    he = ((dataC+dataD))/2
+    tc = ((dataE+dataF))/2
+    hc = ((dataG+dataH))/2
+    deltaBtD = te - he
+    deltaBtB = tc - hc
+    deltadeltaCt = deltaBtD - deltaBtB
+    fc = 2**(-deltadeltaCt)
+    log2fc = math.log(fc,2)
+    print("fold change = ", fc)
+    print("log2 fold change = ", log2fc)
+main()
